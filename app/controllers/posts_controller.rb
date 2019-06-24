@@ -12,14 +12,22 @@ class PostsController < ApplicationController
 	end
 
 	def create
+<<<<<<< HEAD
 	  @post = Post.new(post_params(:title, :description))
+=======
+	  @post = Post.new(params.require[:post]).permit(:title, :description)
+>>>>>>> 46549cca047622ca63bb30f03e6e446d3de3424a
 	  @post.save
 	  redirect_to post_path(@post)
 	end
 
 	def update
 	  @post = Post.find(params[:id])
+<<<<<<< HEAD
 	  @post.update(post_params(:title))
+=======
+	  @post.update(params.require(:post).permit(:title))
+>>>>>>> 46549cca047622ca63bb30f03e6e446d3de3424a
 	  redirect_to post_path(@post)
 	end
 
